@@ -1,0 +1,90 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Bills</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .table th,
+        .table td {
+            text-align: center;
+        }
+
+        .btn-primary {
+            float: right;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #004085;
+            /* Darker shade on hover */
+        }
+
+        .table tbody tr:hover {
+            background-color: #f5f5f5;
+            /* Light gray background on hover */
+        }
+    </style>
+</head>
+
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100 mt-5">
+    <div class="container">
+
+        <div class="container mt-5">
+
+            <div class="row justify-content-center mx-3">
+                <h2 class="btn theme_btn button_hover">Registration List</h2>
+
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Patient Name</th>
+                            <th>Present Address</th>
+                            <th>Permanent Address</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Phone Numbar</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let reg of registrations;">
+                            <td>{{ reg.id }}</td>
+                            <td>{{ reg.name }}</td>
+                            <td>{{ reg.presentAddress }}</td>
+                            <td>{{ reg.permanentAddress }}</td>
+                            <td>{{ reg.gender }}</td>
+                            <td>{{ reg.currentAge }} Year</td>
+                            <td>{{ reg.cellNo }}</td>
+                            <!-- <td>
+                            <button (click)="updatedeleteRegistration(reg.id)" class="btn btn-warning">Edit</button>
+                            <button (click)="deleteRegistration(reg.id)" class="btn btn-danger">Delete</button>
+                        </td> -->
+
+
+
+
+
+                            <td class="text-center">
+                                <button class="btn btn-outline-secondary" aria-label="Edit"
+                                    (click)="updatedeleteRegistration(reg.id)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-outline-danger" aria-label="Delete"
+                                    (click)="deleteRegistration(reg.id)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
